@@ -2,13 +2,17 @@
 import sys
 import json
 
+hash = ""
+
 with open('env.txt') as f:
     data = json.load(f)
-    print(data)
+    hash = data["after"]
 
 with open('commit_history.txt', 'a') as fd:
-    fd.write(f'\n{s}')
-print("Did it",s)
+    fd.write(f'\n{hash}')
+    
+print("Did it:",hash)
+
 with open('commit_history.txt') as f:
     text = f.read()
     print(text)
