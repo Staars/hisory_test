@@ -14,7 +14,7 @@ jobs:
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
-          echo $EVENT_CONTEXT > enx.txt
+          echo $EVENT_CONTEXT > env.txt
       - name: Rebase
         run: |
           python rebaser.py
