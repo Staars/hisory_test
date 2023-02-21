@@ -7,8 +7,13 @@ jobs:
   print_context:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
+      - name: Rebase
+        run: |
           python3 rebaser.py
