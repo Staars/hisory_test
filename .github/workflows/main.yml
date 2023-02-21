@@ -1,3 +1,9 @@
+name: Test Rebaser
+
+on:
+  push:
+    branches: [ $default-branch ]
+
 jobs:
   print_context:
     runs-on: ubuntu-latest
