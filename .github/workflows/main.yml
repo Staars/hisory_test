@@ -7,9 +7,8 @@ jobs:
   print_context:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
