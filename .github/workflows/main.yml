@@ -19,3 +19,7 @@ jobs:
       - name: Rebase
         run: |
           python rebaser.py
+          git config --local user.name "GITHUB BUILD"
+          git config user.email github-actions@github.com
+          git add -f commit_history.txt
+          git commit -m ${GITHUB_SHA}
