@@ -13,6 +13,9 @@ jobs:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
+      - name: Rebase 2
+        run: |
+          echo $EVENT_CONTEXT
       - name: Rebase
         run: |
-          python3 rebaser.py
+          python rebaser.py
