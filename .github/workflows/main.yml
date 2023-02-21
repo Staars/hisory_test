@@ -6,15 +6,15 @@ on:
 jobs:
   print_context:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v3
       - env:
           EVENT_CONTEXT: ${{ toJSON(github.event) }}
         run: |
           echo $EVENT_CONTEXT
-      - name: Rebase 2
-        run: |
           ls -a
       - name: Rebase
         run: |
