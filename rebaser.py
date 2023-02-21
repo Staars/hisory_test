@@ -21,7 +21,8 @@ print(hash_list)
 
 with open('commit_history.txt', 'w') as fd:
     for h in hash_list[1:]:
-        fd.write(f'{h}\n')
+        if len(h) > 8:
+            fd.write(f'{h}\n')
     
 print("Did it:",hash_list)
 
