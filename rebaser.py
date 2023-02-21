@@ -17,11 +17,13 @@ with open('commit_history.txt') as f:
     oldest_hash = hash_list[0]
     print(hash_list,oldest_hash)
 hash_list.append(new_hash)
+hash_list.remove(0)
 print(hash_list)
 
-with open('commit_history.txt', 'a') as fd:
-    fd.write(f'\n{hash}')
+with open('commit_history.txt', 'w') as fd:
+    for h in hash_list:
+        fd.write(f'{h}\n')
     
-print("Did it:",hash)
+print("Did it:",hash_list)
 
 
