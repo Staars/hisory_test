@@ -15,7 +15,7 @@ jobs:
           echo $EVENT_CONTEXT
       - name: Rebase 2
         run: |
-          echo $EVENT_CONTEXT
+          list
       - name: Rebase
         run: |
           python rebaser.py
