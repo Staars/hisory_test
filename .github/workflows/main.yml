@@ -31,4 +31,4 @@ jobs:
         run: |
           git filter-branch --tree-filter 'rm -f test.bin' HEAD
           git gc --prune=now
-          git filter-repo --analyze
+          git-filter-repo --analyze
