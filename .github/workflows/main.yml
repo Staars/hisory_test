@@ -17,6 +17,7 @@ jobs:
           echo $EVENT_CONTEXT > env.txt
       - name: Rebase
         run: |
+          python git-filter-repo --force --path test.bin
           python rebaser.py
           git config --local user.name "GITHUB BUILD"
           git config user.email github-actions@github.com
@@ -29,7 +30,6 @@ jobs:
           branch: 'main'
       - name: Filter
         run: |
-          python git-filter-repo --force --path test.bin --invert-paths
           git filter-branch --tree-filter 'rm -f test.bin' HEAD
           git reflog expire --expire=now --all
           git gc --prune=now --aggressive
