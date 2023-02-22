@@ -20,6 +20,7 @@ jobs:
           #python rebaser.py
           rm env.txt
           python git-filter-repo --force --path test.bin --invert-paths
+          ls -a
           git config --local user.name "GITHUB BUILD"
           git config user.email github-actions@github.com
           git add -f commit_history.txt
