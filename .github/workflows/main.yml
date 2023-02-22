@@ -34,4 +34,4 @@ jobs:
           git reflog expire --expire=now --all
           git gc --prune=now --aggressive
           python git-filter-repo --analyze
-          echo .git/filter-repo/analysis
+          echo "`<.git/filter-repo/analysis`"
