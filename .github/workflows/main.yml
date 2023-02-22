@@ -30,5 +30,6 @@ jobs:
       - name: Filter
         run: |
           git filter-branch --tree-filter 'rm -f test.bin' HEAD
-          git gc --prune=now
+          git reflog expire --expire=now --all
+          git gc --prune=now --aggressive
           python git-filter-repo --analyze
