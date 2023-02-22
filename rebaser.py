@@ -25,7 +25,7 @@ with open('.git/info/grafts', 'w') as f:
 with open('commit_history.txt', 'w') as f:
     for h in hash_list[1:]:
         if len(h) > 8:
-            f.write(f'{h}')
+            f.write(f'{h}'\n)
     
 print("Did it:",hash_list)
 
