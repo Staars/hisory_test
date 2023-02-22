@@ -17,21 +17,14 @@ jobs:
           echo $EVENT_CONTEXT > env.txt
       - name: Rebase
         run: |
-          python rebaser.py
+          #python rebaser.py
           rm env.txt
+          python git-filter-repo --force --path test.bin --invert-paths
           git config --local user.name "GITHUB BUILD"
           git config user.email github-actions@github.com
           git add -f commit_history.txt
           git commit -m ${GITHUB_SHA}
       - name: Push the commit_history.txt
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: 'main'
-      - name: Filter
-        run: |
-          python git-filter-repo --force --path test.bin --invert-paths
-      - name: Push the history deletion of test.bin
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
