@@ -19,8 +19,8 @@ with open('commit_history.txt') as f:
 hash_list.append(new_hash)
 print(hash_list)
 
-with open('.git/info/grafts', 'w') as f:
-    f.write(f'{oldest_hash}')
+#with open('.git/info/grafts', 'w') as f:
+#    f.write(f'{oldest_hash}')
 
 with open('commit_history.txt', 'w') as f:
     for h in hash_list[1:]:
