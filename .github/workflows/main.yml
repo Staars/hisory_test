@@ -21,7 +21,6 @@ jobs:
           git config --local user.name "GITHUB BUILD"
           git config user.email github-actions@github.com
           git add -f commit_history.txt
-          git add -f .git/info/grafts
           git commit -m ${GITHUB_SHA}
       - name: Push the commit_history.txt
         uses: ad-m/github-push-action@master
@@ -30,5 +29,4 @@ jobs:
           branch: 'main'
       - name: Filter
         run: |
-          git replace --convert-graft-file
-          git filter-branch
+          git filter-branch --tree-filter 'rm -f test.bin' HEAD
