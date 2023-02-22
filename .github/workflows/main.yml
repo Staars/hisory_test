@@ -17,7 +17,7 @@ jobs:
           echo $EVENT_CONTEXT > env.txt
       - name: Rebase
         run: |
-          python git-filter-repo --force --path test.bin
+          python git-filter-repo --force --path test.bin --invert-paths
           python rebaser.py
           git config --local user.name "GITHUB BUILD"
           git config user.email github-actions@github.com
