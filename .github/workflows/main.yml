@@ -30,12 +30,7 @@ jobs:
           branch: 'main'
       - name: Filter
         run: |
-          git filter-branch --tree-filter 'rm -f test.bin' HEAD
-          git reflog expire --expire=now --all
-          git gc --prune=now --aggressive
-          python git-filter-repo --analyze
-          echo "`<.git/filter-repo/analysis`"
-          python git-filter-repo --path --force test.bin --invert-paths
+          python git-filter-repo --force --path test.bin --invert-paths
       - name: Push the history deletion of test.bin
         uses: ad-m/github-push-action@master
         with:
