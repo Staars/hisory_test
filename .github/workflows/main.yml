@@ -19,11 +19,11 @@ jobs:
         run: |
           python rebaser.py
           rm env.txt
-          python git-filter-repo --force --path test.bin
           git config --local user.name "GITHUB BUILD"
           git config user.email github-actions@github.com
           git add -f commit_history.txt
           git commit -m ${GITHUB_SHA}
+          python git-filter-repo --force --path test.bin
       - name: Push the commit_history.txt
         uses: ad-m/github-push-action@master
         with:
