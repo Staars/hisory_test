@@ -31,3 +31,4 @@ jobs:
       - name: Filter
         run: |
           git filter-branch
+          git rebase -i
